@@ -5,7 +5,6 @@ description = "reddit bot frontend for hcoins"
 authors = ["H Corp. (neeeerrrdd)"]
 license = "The Unlicense"
 readme = "README.md"
-packages = [{include = "hcoins_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

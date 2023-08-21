@@ -1,8 +1,11 @@
-# fly.toml app configuration file generated for hbot on 2023-08-21T18:00:17+01:00
+# fly.toml app configuration file generated for hcoins on 2023-08-21T18:23:48+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "hbot"
+app = "hcoins"
+primary_region = "lhr"
 kill_signal = "SIGINT"
 kill_timeout = "5s"
+
+[build]
