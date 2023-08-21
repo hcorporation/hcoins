@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "hcoins-bot"
+version = "0.1.0"
+description = "reddit bot frontend for hcoins"
+authors = ["H Corp. (neeeerrrdd)"]
+license = "The Unlicense"
+readme = "README.md"
+packages = [{include = "hcoins_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+praw = "^7.7.1"
+python-dotenv = "^1.0.0"
+peewee = "^3.16.3"
+psycopg2 = "^2.9.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
