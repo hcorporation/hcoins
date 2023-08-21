@@ -12,10 +12,10 @@ def run(new_mentions, backend, get_parent):
                 if backend.create_user(parent) == False:
                     mention.reply("an internal unknown error occurred. you can report it here: https://github.com/hcorporation/hcoins")  
             if (backend.get_user(mention.author.name) and backend.get_user(parent)) == True:
-                if "u/h_corp" in mention.body:
-                    mention_parsed = mention.body.replace("u/h_corp !hCoins ", "")
-                else:
+                if "/u/h_corp" in mention.body:
                     mention_parsed = mention.body.replace("/u/h_corp !hCoins ", "")
+                else:
+                    mention_parsed = mention.body.replace("u/h_corp !hCoins ", "")
                 if "+" in mention_parsed:
                     mention.reply(backend.update_user(mention.author.name, parent, mention_parsed.replace("+",""), 1))
                 elif "-" in mention_parsed:
