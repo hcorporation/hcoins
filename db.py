@@ -15,7 +15,7 @@ class CoinUser(Model):
 class dbUtils:
     def __init__(self):
         self.db = db
-        self.errorMsg = "an unknown error occurred. you can report it here: https://github.com/hcorporatipn/hcoins"
+        self.errorMsg = "an unknown error occurred. you can report it here: https://github.com/hcorporation/hcoins"
         self.CoinUser = CoinUser
         self.db.connect(reuse_if_open=True)
         self.db.create_tables([self.CoinUser])
