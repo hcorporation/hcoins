@@ -7,5 +7,3 @@ app = "hcoins"
 primary_region = "lhr"
 kill_signal = "SIGINT"
 kill_timeout = "5s"
-
-[build]
