@@ -7,3 +7,5 @@ def bot():
     except Exception as e:
         print(e)
         bot()
+
+bot()
