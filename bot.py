@@ -23,6 +23,10 @@ def run(new_mentions, backend, get_parent):
                 else:
                     mention.reply("use + or - to set what you want to do with your hCoins.")
         elif "!balance" in mention.body:
-            mention.reply(backend.get_coins(mention.author.name))
+            if backend.get_user(mention.author.name) == False:
+                if backend.create_user(mention.author.name) == False:
+                    mention.reply("an unknown internal error occurred. you can report it here: https://github.com/hcorporation/hcoins")
+            if backend.get_user(mention.author.name) == True:
+                mention.reply(backend.get_coins(mention.author.name))
         else:
             mention.reply("I require a command, H sentient.")

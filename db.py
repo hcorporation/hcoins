@@ -50,7 +50,7 @@ class dbUtils:
         if self.db.is_closed() == True:
             self.db.connect()
         try:
-            self.CoinUser.create(name=user, coins=50)
+            self.CoinUser.create(name=user, coins=100)
             self.db.close()
             return True
         except Exception as e:
