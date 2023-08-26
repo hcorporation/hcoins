@@ -28,5 +28,7 @@ def run(new_mentions, backend, get_parent):
                     mention.reply("an unknown internal error occurred. you can report it here: https://github.com/hcorporation/hcoins")
             if backend.get_user(mention.author.name) == True:
                 mention.reply(backend.get_coins(mention.author.name))
+        elif "!leaderboard" in mention.body:
+            mention.reply(backend.get_leaderboard())
         else:
             mention.reply("I require a command, H sentient.")

@@ -15,7 +15,7 @@ class CoinUser(Model):
 class dbUtils:
     def __init__(self):
         self.db = db
-        self.errorMsg = "an unknown error occurred. you can report it here: https://github.com/hcorporation/hcoins"
+        self.errorMsg = "the following error occurred. you can report it here: https://github.com/hcorporation/hcoins"
         self.CoinUser = CoinUser
         self.db.connect(reuse_if_open=True)
         self.db.create_tables([self.CoinUser])
@@ -42,8 +42,7 @@ class dbUtils:
             return "**" + userfound.name + "** has **" + str(userfound.coins) + "** hCoins."
         except Exception as e:
             self.db.close()
-            print("errored database closed")
-            return self.errorMsg
+            return self.errorMsg + "\n\n```\n" + str(e) + "\n```"
 
     # creating a user
     def create_user(self, user):
@@ -81,6 +80,18 @@ class dbUtils:
                 self.db.close()
                 return "**" + coins + "** hCoins were taken from both **u/" + sender + "**'s account and **u/" + recipient + "**'s account."
         except Exception as e:
-            print(e)
             self.db.close()
-            return self.errorMsg
+            return self.errorMsg + "\n\n```\n" + str(e) + "\n```"
+
+    def get_leaderboard(self):
+        if self.db.is_closed() == True:
+            self.db.connect()
+        try:
+            allUsers = self.CoinUser.select().order_by(self.CoinUser.coins.desc())
+            table = "this is a ranking of all users by their hCoins wealth.\n\n user | coins \n -- | --"
+            for user in allUsers:
+                table = table + "\n" + user.name + " | " + "Ħ" + str(user.coins)
+            return table
+        except Exception as e:
+            self.db.close()
+            return self.errorMsg + "\n\n```\n" + str(e) + "\n```"
