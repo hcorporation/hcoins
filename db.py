@@ -91,6 +91,7 @@ class dbUtils:
             table = "this is a ranking of all users by their hCoins wealth.\n\n user | coins \n -- | --"
             for user in allUsers:
                 table = table + "\n" + user.name + " | " + "Ħ" + str(user.coins)
+            self.db.close()
             return table
         except Exception as e:
             self.db.close()
